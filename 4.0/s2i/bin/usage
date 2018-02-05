@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cat <<EOF
+This is a S2I Swift builder image that can turn Swift source code into built applications contained 
+in docker images.  The purpose here being that you don't have to write your own Dockerfiles.  And 
+you can leverage this for better consistency across your development environment.
+To use it, install S2I: https://github.com/openshift/source-to-image#installation
+
+Sample invocation to build a test app using this image:
+$ s2i build ./3.0/test/test-app/ dudash/swift-30-ubuntu14 swift-test-app
+(Note: replace the version and OS as appropiate for the image you are using)
+
+The above will have created an image containing your app, so you can then run your app via:
+$ docker run swift-test-app
+
+To find out more about advanced usage and also how to use this tool with Open Shift please goto:
+https://github.com/dudash/s2i-swift
+EOF

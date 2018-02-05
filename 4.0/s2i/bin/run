@@ -1,0 +1,13 @@
+#!/bin/bash -e
+# The run script executes the built swift app
+#
+# For more information see the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+# assemble script built the app exec and placed it in the /opt/app-root folder
+
+exec /opt/app-root/bin/app
+
+# TODO: determine the executable that was built.  Might be named differently by Swift package manager
+#exec /opt/app-root/XXX
