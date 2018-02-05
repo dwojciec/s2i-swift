@@ -74,8 +74,7 @@ RUN apt-get -q update && \
 RUN DOWNLOAD_URL=https://swift.org/builds/swift-4.0.3-release/ubuntu1604/swift-4.0.3-RELEASE/swift-4.0.3-RELEASE-ubuntu16.04.tar.gz && \
     curl -fSsL $DOWNLOAD_URL -o swift-${SWIFT_VERSION}.tar.gz && \
     curl -fSsL $DOWNLOAD_URL.sig -o swift-${SWIFT_VERSION}.tar.gz.sig && \
-    wget -q -O - https://swift.org/keys/all-keys.asc | \
-    gpg --import - \
+    wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import - && \
     gpg --keyserver hkp://pool.sks-keyservers.net --refresh-keys Swift && \
     gpg --verify swift-${SWIFT_VERSION}.tar.gz.sig && \
     mkdir -p /swift && \
